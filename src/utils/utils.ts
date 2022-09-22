@@ -79,3 +79,16 @@ export function nodeVersionWarning() {
     console.error(`\n${red('✖')} ${e.message}\n`)
   }
 }
+
+export function replaceTextInFile(replacement: string, file: string) {
+  fs.readFile(file, 'utf8', function (err, data) {
+    if (err) {
+      return console.log(err)
+    }
+    var result = data.replace(/${replacement}/g, 'replacement')
+
+    fs.writeFile(file, result, 'utf8', function (err) {
+      if (err) return console.log(err)
+    })
+  })
+}
