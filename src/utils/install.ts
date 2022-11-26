@@ -1,7 +1,7 @@
 import { Spinner } from 'cli-spinner'
 import { bold } from 'colorette'
 
-import { npm, npx } from './utils'
+import { cd, npm, npx } from './utils'
 
 export const installDependencies = async (
   folder: string,
@@ -14,6 +14,7 @@ export const installDependencies = async (
 
   await npm('ci', folder)
   await npx(`react-native-rename ${folder} -b ${package_name}`, folder)
+  await npx(`pod-install`, folder)
 
   loading.stop(true)
 }
