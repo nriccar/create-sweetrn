@@ -1,7 +1,7 @@
 import { Spinner } from 'cli-spinner'
 import { bold } from 'colorette'
 
-import { cd, npm, npx } from './utils'
+import { npm, npx } from './utils'
 
 export const installDependencies = async (
   folder: string,
